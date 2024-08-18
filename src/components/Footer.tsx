@@ -15,7 +15,11 @@ const Footer: FC<FooterProps> = ({}) => {
               {navLinks.map(({ id, title, link }) => (
                 <ul key={id}>
                   <Link href="">
-                    <span className={`text-[20px] leading-[27px] font-bold font-satoshi text-secondary hover:text-white/70 bouncing-text`}>{title}</span>
+                    <span
+                      className={`text-[20px] leading-[27px] font-bold font-satoshi text-secondary hover:text-white/70 bouncing-text`}
+                    >
+                      {title}
+                    </span>
                   </Link>
                 </ul>
               ))}
@@ -29,11 +33,11 @@ const Footer: FC<FooterProps> = ({}) => {
 
           <span className="text-[14px] leading-[17px] font-bold font-monumentExtended text-center text-secondary">
             Copyright © KONGIRO 2024 | Designed by{" "}
-            <Link className="text-primary" href={"https://x.com/Davidoshconcept"}>
+            <Link className="text-primary bouncing-text" href={"https://x.com/Davidoshconcept"}>
               David Osh
             </Link>{" "}
             - Built by{" "}
-            <Link className="text-primary" href={"https://izzydev.vercel.app/"}>
+            <Link className="text-primary bouncing-text" href={"https://izzydev.vercel.app/"}>
               IzzyDev
             </Link>
           </span>
