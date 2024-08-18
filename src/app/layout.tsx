@@ -1,8 +1,24 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AOSInit } from "@/components/ui/aos";
+import localFont from "next/font/local";
+import Navbar from "@/components/Navbar";
+import { Providers } from "./providers";
+import { cn } from "@/lib/utils";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const monumentExtended = localFont({
+  src: "./fonts/monumentExtended.otf",
+  variable: "--font-monumentExtended",
+});
+
+const satoshi = localFont({
+  src: "./fonts/satoshi.otf",
+  variable: "--font-satoshi",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <AOSInit />
+      <body className={cn(satoshi.variable, monumentExtended.variable)}>
+        <Navbar />
+        <Providers>{children}</Providers>
+        <Footer />
+      </body>
     </html>
   );
 }

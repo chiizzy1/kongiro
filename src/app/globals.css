@@ -2,32 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+:root {
+  --black: #121212;
+  --bg-black: #000000;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
+  background: var(--bg-black);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+button {
+  transition: ease-in 0.5s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.smooth {
+  transition: all 5s ease-in-out;
+}
+
+.nav-gradient {
+  background: linear-gradient(334.33deg, rgba(62, 62, 74, 0.2) -0.84%, rgba(154, 182, 194, 0.2) 85.98%);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #e2e2e2 0%, #5c5c5c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.cta-bg {
+  background: var(--black);
+}
+
+/* Slider */
+.swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* Bouncing Text */
+.bouncing-text {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.bouncing-text:hover {
+  animation: bounce 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
   }
 }
