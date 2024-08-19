@@ -12,12 +12,24 @@
 :root {
   --black: #121212;
   --bg-black: #000000;
+  --scroll-bar-thumb-color: #FF0130;
+  --scroll-bar-bg-color: #dadada;
 }
 
 body {
   overflow-x: hidden;
   transition: all 0.5s ease-in-out;
   background: var(--bg-black);
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background: var(--scroll-bar-bg-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--scroll-bar-thumb-color);
+  border-radius: 100px;
 }
 
 button {
